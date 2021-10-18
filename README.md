@@ -1,2 +1,2 @@
 # AngularJS
-AngularJS 연습
+AngularJS를 연습하는 공간
