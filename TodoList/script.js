@@ -30,4 +30,15 @@ app.controller('TodoCtrl', ($scope)=>{
     }
     // remove from todos
   }
+
+  $scope.add = (newTodoTitle)=>{
+    // create new todo
+    let newTodo = {
+      title: newTodoTitle,
+      completed: false,
+      createdAt: Date.now()
+    }    
+    $scope.todos.push(newTodo)
+    $scope.newTodoTitle = "";
+  }
 })
