@@ -1,0 +1,129 @@
+<!-- <%@ page session="true" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+
+	String downloadUrl = "http://211.42.198.36:9081/fspui/resources/client/";   
+	String downloadUrlPC = "";
+	String downloadUrlPuc = "";
+
+	// x86/x64 check
+	String USER_AGENT = request.getHeader("user-agent");
+	boolean is64 = (USER_AGENT.toUpperCase().indexOf("WOW64") != -1) || (USER_AGENT.toUpperCase().indexOf("WIN64") != -1);
+	if(!is64)
+	{
+		downloadUrlPC = downloadUrl + "FSP_DRM_Client_for_KAITS_20210929_v1.00.0001.exe";
+		//downloadUrlPuc = downloadUrl + "liveupdate.exe";
+	}else{
+		downloadUrlPC = downloadUrl + "FSP_DRM_Client_for_KAITS_x64_20210929_v1.00.0001.exe";
+		//downloadUrlPuc = downloadUrl + "liveupdate.exe";
+	}
+
+%> -->
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>한국산업기술보호협회 DRM 클라이언트 다운로드</title>
+  <style type="text/css">
+    body {
+      table border: none;
+      border-collapse: collapse;
+      font-family: '맑은 고딕';
+      color: #454749;
+    }
+  </style>
+</head>
+<script>
+  function callFunction() {
+    let downloadUrl = 'http://211.42.198.36:9081/fspui/resources/client/'
+    let downloadUrlPC = "";
+    let downloadUrlPuc = "";
+
+    // x86/x64 check
+    var headers = req.getAllResponseHeaders().toLowerCase();
+    console.log('headers ',headers)
+    let test = Headers.get('user-agent');
+    console.log('test ',test)
+    let USER_AGENT = request.getHeader("user-agent");
+    let is64 = (USER_AGENT.toUpperCase().indexOf("WOW64") != -1) || (USER_AGENT.toUpperCase().indexOf("WIN64") != -1);
+    if(!is64)
+    {
+      downloadUrlPC = downloadUrl + "FSP_DRM_Client_for_KAITS_20210929_v1.00.0001.exe";
+      //downloadUrlPuc = downloadUrl + "liveupdate.exe";
+    }else{
+      downloadUrlPC = downloadUrl + "FSP_DRM_Client_for_KAITS_x64_20210929_v1.00.0001.exe";
+      //downloadUrlPuc = downloadUrl + "liveupdate.exe";
+    }
+    window.location.href = downloadUrlPC;
+  }
+</script>
+  <body>
+    <table width="900px" align="center">
+      <tr height=10px;> </tr>
+      <!--여백-->
+      <tr height=5px;> </tr>
+
+      <!--header-->
+      <table width="900px" border="0" bordercolor="f8f8f8" align="center">
+        <tr height=150px;>
+          <td colspan=3 border="0" background="resources/image/header.png" align="center">
+            <font size="5" color="white">Fasoo Enterprise DRM</font><br>
+            <font face="맑은 고딕" color="white" size="10">
+              <strong>산출물보안(DRM) 클라이언트 다운로드</strong>
+            </font>
+          </td>
+        </tr>
+        <tr>
+
+          <!--설명-->
+        <tr height=20px;> </tr>
+        <tr>
+          <td colspan=3; style="padding-left:50px" ;>
+            산출물보안(DRM) 프로그램의 설치페이지 입니다.<br>
+            아래의 다운로드 링크를 이용해 DRM 클라이언트 설치에 협조해 주시기 바랍니다<br>
+            <br>
+            <br>
+            <strong></strong>
+          </td>
+        </tr>
+
+
+        <!--다운로드 버튼이 2개 일 경우-->
+        <tr height=70px; style="padding:5px" bgcolor="f8f8f8" ; align="center">
+          <td width=700px; style="padding-left:50px" ; align="left">
+            <font size="5"><strong>DRM 클라이언트</font></strong><br>
+            <font size="3">설치가능환경 : Windows 8.1, 10 x86, x64
+          </td>
+          <td colspan=2 style="padding-right:10px" ; align="right">
+            <a href="javascript:callFunction()"><img src="resources/image/downkr.png"></a>
+          </td>
+        </tr>
+        <tr height=5px;></tr>
+        <!--여백-->
+
+        <!--다운로드 버튼이 2개 일 경우-->
+
+        <tr height=5px;></tr>
+        <!--여백-->
+
+        <tr height=5px;></tr>
+        <!--여백-->
+
+        <!--하단 버전 명기 및 페이지 이동 링크-->
+        <tr style="padding:5px" align="center">
+          <td style="padding-left:10px" ; align="left">
+            <font size="2"></font>
+          </td>
+          <td colspan=2; style="padding-right:10px" ; align="right">
+            <font size="2">
+
+        </tr>
+
+
+        <tr height=3px;> </tr>
+        <!--여백-->
+      </table>
+    </table>
+  </body>
+
+</html>

@@ -1,44 +1,18 @@
 let app = angular.module('todo',[]);
 
-app.controller('TodoCtrl', ($scope)=>{
-  $scope.todos = [
-    {
-      title: '앵귤러 학습',
-      completed: false,
-      createdAt: Date.now()
-    },
-    {
-      title: '운동하기',
-      completed: false,
-      createdAt: Date.now()
-    },
-    {
-      title: '점심식사',
-      completed: false,
-      createdAt: Date.now()
-    },
-  ];
+app.controller('TodoCtrl', ($scope, todoStorage)=>{
+  
+  $scope.todos = todoStorage.get();
 
   $scope.remove = (todo) => {
     // find todo index in todos
-    let idx = $scope.todos.findIndex((item)=>{
-      return item.id === todo.id
-    })
-
-    if(idx > -1) {
-      $scope.todos.splice(idx, 1)
-    }
-    // remove from todos
+    todoStorage.remove(todo)
   }
 
   $scope.add = (newTodoTitle)=>{
     // create new todo
-    let newTodo = {
-      title: newTodoTitle,
-      completed: false,
-      createdAt: Date.now()
-    }    
-    $scope.todos.push(newTodo)
+    todoStorage.add(newTodoTitle)
     $scope.newTodoTitle = "";
   }
 })
+
